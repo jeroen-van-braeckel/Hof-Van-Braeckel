@@ -149,6 +149,10 @@ footer {
   text-align: center;
 }
 
+.menu-content h1 {
+  color: black;
+  font-family: 'Playfair Display', serif;
+}
 .menu-content h2 {
   color: black;
   font-family: 'Playfair Display', serif;

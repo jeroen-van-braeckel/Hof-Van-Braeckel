@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
-
   document.addEventListener('DOMContentLoaded', function () {
     const menuButton = document.getElementById('menuButton');
     const menuDialog = document.getElementById('menuDialog');
@@ -28,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const reservationDialog = document.getElementById('reservationDialog');
     const closeReservationDialog = document.getElementById('closeReservationDialog');
+    const reservationMessage = document.getElementById('reservationMessage');
   
     // Open the vegan menu dialog when the button is clicked
     menuButton.addEventListener('click', function () {
@@ -56,8 +56,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Check URL query parameters to see if the reservation should be shown
     const urlParams = new URLSearchParams(window.location.search);
     const showReservation = urlParams.get('reservation');
+    const guestName = urlParams.get('name'); // Fetch the name parameter
   
     if (showReservation === 'confirmed') {
+      let message = `Uw reservering voor 30 september is bevestigd.`;
+      
+      // If the name is provided, include it in the message
+      if (guestName) {
+        message = `Geachte ${guestName},`;
+      }
+  
+      reservationMessage.textContent = message ;
       reservationDialog.style.display = 'flex';
     }
   });
